@@ -18,25 +18,10 @@ public class Alquiler implements Serializable {
     @ManyToOne
     @JoinColumn(name = "alquilerv")
     private Vehiculo vehiculos;
-    private Date fecha;
+    @JoinColumn(name = "fecha")
+    private String fecha;
 
-    public Persona getPersonas() {
-        return personas;
-    }
-
-    public void setPersonas(Persona personas) {
-        this.personas = personas;
-    }
-
-    public Vehiculo getVehiculos() {
-        return vehiculos;
-    }
-
-    public void setVehiculos(Vehiculo vehiculos) {
-        this.vehiculos = vehiculos;
-    }
-
-    public Alquiler(Long id_Alquiler, Persona personas, Vehiculo vehiculos, Date fecha) {
+    public Alquiler(Long id_Alquiler, Persona personas, Vehiculo vehiculos, String fecha) {
         this.id_Alquiler = id_Alquiler;
         this.personas = personas;
         this.vehiculos = vehiculos;
@@ -54,11 +39,27 @@ public class Alquiler implements Serializable {
         this.id_Alquiler = id_Alquiler;
     }
 
-    public Date getFecha() {
+    public Persona getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(Persona personas) {
+        this.personas = personas;
+    }
+
+    public Vehiculo getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(Vehiculo vehiculos) {
+        this.vehiculos = vehiculos;
+    }
+
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 }

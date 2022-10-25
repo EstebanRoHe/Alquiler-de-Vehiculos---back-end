@@ -18,7 +18,7 @@ public class Alquiler implements Serializable {
     @ManyToOne
     @JoinColumn(name = "alquilerv")
     private Vehiculo vehiculos;
-    @JoinColumn(name = "fecha")
+    @Column(name = "fecha")
     private String fecha;
 
     public Alquiler(Long id_Alquiler, Persona personas, Vehiculo vehiculos, String fecha) {

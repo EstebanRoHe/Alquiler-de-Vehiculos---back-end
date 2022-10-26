@@ -4,6 +4,7 @@ import com.cr.ac.una.proyecto.Models.Persona;
 import com.cr.ac.una.proyecto.Repositories.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class PersonaController {
 
     @PostMapping
     @CrossOrigin(origins="*", maxAge = 3600)
-    public ResponseEntity create(@RequestBody Persona persona){
+    public ResponseEntity create(@Validated @RequestBody Persona persona){
         return  ResponseEntity.ok(personaRepository.save(persona));
     }
 

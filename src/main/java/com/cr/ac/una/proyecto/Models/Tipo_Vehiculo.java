@@ -3,6 +3,7 @@ package com.cr.ac.una.proyecto.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class Tipo_Vehiculo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Tipo_Vehiculo;
 
+    @NotBlank
     @Column(name = "descripsion", nullable = false)
     private String descripsion;
 

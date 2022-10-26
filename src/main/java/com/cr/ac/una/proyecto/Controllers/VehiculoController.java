@@ -4,6 +4,7 @@ import com.cr.ac.una.proyecto.Models.Vehiculo;
 import com.cr.ac.una.proyecto.Repositories.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class VehiculoController {
 
     @PostMapping
     @CrossOrigin(origins = "*", maxAge = 3600)
-    public ResponseEntity create(@RequestBody Vehiculo vehiculo){
+    public ResponseEntity create( @Validated @RequestBody Vehiculo vehiculo){
         return ResponseEntity.ok(vehiculoRepository.save(vehiculo));
     }
     @DeleteMapping("/{id_Vehiculo}")

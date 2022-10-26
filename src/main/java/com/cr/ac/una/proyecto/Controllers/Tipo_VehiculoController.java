@@ -4,6 +4,7 @@ import com.cr.ac.una.proyecto.Models.Tipo_Vehiculo;
 import com.cr.ac.una.proyecto.Repositories.Tipo_VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Tipo_VehiculoController {
 
     @PostMapping
     @CrossOrigin(origins="*", maxAge = 3600)
-    public ResponseEntity create(@RequestBody Tipo_Vehiculo tipo_vehiculo){
+    public ResponseEntity create(@Validated @RequestBody Tipo_Vehiculo tipo_vehiculo){
         return ResponseEntity.ok(tipo_vehiculoRepository.save(tipo_vehiculo));
     }
 

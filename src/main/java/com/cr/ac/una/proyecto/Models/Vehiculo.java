@@ -1,6 +1,9 @@
 package com.cr.ac.una.proyecto.Models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -10,8 +13,11 @@ public class Vehiculo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Vehiculo;
+    @NotBlank
     @Column(name = "placa", nullable = false)
     private String placa;
+
+    @NotNull
     @OneToOne()
     @JoinColumn(name = "tipo_vehiculo")
     private Tipo_Vehiculo tipo_vehiculo;

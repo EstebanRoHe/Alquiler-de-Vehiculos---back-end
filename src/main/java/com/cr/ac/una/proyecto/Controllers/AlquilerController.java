@@ -4,6 +4,7 @@ import com.cr.ac.una.proyecto.Models.Alquiler;
 import com.cr.ac.una.proyecto.Repositories.AlquilerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class AlquilerController {
 
     @PostMapping
     @CrossOrigin(origins = "*", maxAge = 3600)
-    public ResponseEntity create(@RequestBody Alquiler alquiler){
+    public ResponseEntity create( @Validated @RequestBody Alquiler alquiler){
         return ResponseEntity.ok(alquilerRepository.save(alquiler));
     }
 

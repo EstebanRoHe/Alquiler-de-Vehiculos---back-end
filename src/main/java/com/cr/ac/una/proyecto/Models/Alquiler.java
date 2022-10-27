@@ -1,6 +1,8 @@
 package com.cr.ac.una.proyecto.Models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.*;
 
@@ -11,14 +13,17 @@ public class Alquiler implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Alquiler;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "alquiler")
     private Persona personas;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "alquilerv")
     private Vehiculo vehiculos;
-    @JoinColumn(name = "fecha")
+    @NotEmpty
+    @Column(name = "fecha")
     private String fecha;
 
     public Alquiler(Long id_Alquiler, Persona personas, Vehiculo vehiculos, String fecha) {

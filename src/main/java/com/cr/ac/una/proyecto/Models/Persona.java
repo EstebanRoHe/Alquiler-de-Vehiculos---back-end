@@ -1,5 +1,8 @@
 package com.cr.ac.una.proyecto.Models;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -9,8 +12,10 @@ public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_persona;
-    @Column(name = " identificacion", nullable=false)
+    @NotNull
+    @Column(name = "identificacion", nullable=false)
     private int identificacion;
+    @NotBlank
     @Column(name = "nombre", nullable=false)
     private String nombre;
 
